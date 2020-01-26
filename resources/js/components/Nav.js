@@ -8,7 +8,7 @@ function Nav(props) {
   }
 
   function getAuthLinks() {
-    if (props.user.guest) {
+    if (!props.user.isAuthenticated) {
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
