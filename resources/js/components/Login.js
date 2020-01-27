@@ -7,14 +7,14 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const formData = new FormData()
-    formData.append('email', email)
-    formData.append('password', password)
+    var formData = new URLSearchParams();
+    formData.append('email', email);
+    formData.append('password', password);
 
     fetch('/api/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: formData
     })
@@ -44,7 +44,7 @@ function Login() {
           <div className="card">
             <div className="card-body">
 
-              <form action="/login" method="POST" onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="email">Email address</label>
                   <input
